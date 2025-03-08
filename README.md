@@ -1,2 +1,24 @@
 # HousePricePrediction
 A kaggle competition project
+
+# Background:
+This is a competition on Kaggle for house price prediction (these properties are in Ames, Iowa). Participants were given around 1,460 training sample with 80 features (both numerical and categorical) of houses such as size, number of rooms, and location, and condition. Even though the data size is small (only 1,400 samples for training), it is still an interesting and challenging project since there are a big amount of NA values and diversified plus correlated features. These challenges can help sharpen important ML skills such as data preprocessing and feature engineering. Plus, due to small data size, it is convenient to test more complex models such as Deep Learning (MLP – Multi Layer Perceptron is used .
+# Goals: There are several goals I want to achieve through this task
+1.	Test various traditional ML techniques on this dataset (data preprocessing, feature engineering, parameter tuning, XGBoost regressor)
+2.	Compare deep learning with XGboost for model performance
+3.	With generative AI becoming very hot these days, people are talking about the possibility that machine will take over software engineering. To test this idea for machine learning,  I used Cursor, a AI based coding tool, to build the machine learning model automatically. Then I compare its performance to my ‘man-made’ models.
+
+# Results and Learning:
+Let’s use data to tell the story, below is the performance metrics comparison among 3 models I build. 
+The first one is the validset’s RMSE (I separated 200 training samples as validset for the purpose of parameter tuning)
+  Manually tuned XGBoost regressor: 0.1270, DNN (Multi-Layer Perceptron): 0.1253, XGBoost regressor auto-built by AI tool: 0.1561 
+The second one is the inference results returned by Kaggle:
+	Manually tuned XGBoost regressor: 0.1221, DNN (Multi-Layer Perceptron): 0.1281, XGBoost regressor auto-built by AI tool: NA (did bother to try it due to the poor performance on validset)
+
+Based on these comparison results, here is the key insights I would like to share:
+1.	Gradient Boosting Tree is always a good choice for tabular data. Compared to Deep Neural Netowrk, it is easier for parameter tuning
+2.	Even though DNN is powerful for unstructured data, it is hard for it to beat GBT on tabular data. However, it also delivered very good result. If data sample has bigger size, DNN will be worth trying for better performance.
+3.	Speaking of AI generated ML models, it seems lacking the knowledge of deal with complex features, so the model didn’t perform well. However, I am pretty impressed with its coding capabilities. I feel it could be a coding assistant to AI engineers to improve efficiency.
+
+On the other hand: some insights obtained from manually tuning the model: It is always good to check features carefully and develop careful plan of feature cleaning and feature engineering.
+
