@@ -20,5 +20,5 @@ Based on these comparison results, here is the key insights I would like to shar
 2.	Even though DNN is powerful for unstructured data, it is hard for it to beat GBT on tabular data. However, it also delivered very good result. If data sample has bigger size, DNN will be worth trying for better performance.
 3.	Speaking of AI generated ML models, it seems lacking the knowledge of deal with complex features, so the model didn’t perform well. However, I am pretty impressed with its coding capabilities. I feel it could be a coding assistant to AI engineers to improve efficiency.
 
-On the other hand: some insights obtained from manually tuning the model: It is always good to check features carefully and develop careful plan of feature cleaning and feature engineering.
+On the other hand: some insights obtained from manually tuning the model: It is always good to check features carefully and develop careful plan of feature cleaning and feature engineering. Plus, some tradinal ML techniques (automatic feature selection (RFE used here), mean encoding for categorical features, parameter tuning through sklearn.RandomizedsearchCV) are very effective to help XGBoost Regressor learn the pattern from training data.
 
