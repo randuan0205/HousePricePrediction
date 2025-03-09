@@ -22,3 +22,5 @@ Based on these comparison results, here is the key insights I would like to shar
 
 On the other hand: some insights obtained from manually tuning the model: It is always good to check features carefully and develop careful plan of feature cleaning and feature engineering. Plus, some tradinal ML techniques (automatic feature selection (RFE used here), mean encoding for categorical features, parameter tuning through sklearn.RandomizedsearchCV) are very effective to help XGBoost Regressor learn the pattern from training data.
 
+I also tried to create new features through combining existing features and create more powerful ones. But this doesn't really help XGBoost regressor. The learning here is that, for XGBoost, you'd better let it handle feature engineering by itself instead of manually creating new ones. XGBoost naturally can handle feature selection and feature interaction by using its algorthm.
+
