@@ -7,9 +7,9 @@ https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques
 This is a competition on Kaggle for house price prediction (All properties are in Ames, Iowa). Participants were given around 1,460 training samples with 80 features (both numerical and categorical) of houses such as size, number of rooms, location, conditions, garages, basements etc. Even though the data size is small (only 1,400 samples for training), it is still an interesting and challenging project since there are a big amount of NA values and diversified & correlated features. These challenges can help sharpen important ML skills such as data preprocessing, feature engineering, parameter tuning etc. Plus, due to the small data size, it is convenient to utilize more complex models such as Deep Neural Network and test its performance (MLP – Multi Layer Perceptron is used here).
 
 ### Goals: There are several goals I want to achieve through this task
-1.	Test various traditional ML techniques on this dataset (data preprocessing, feature engineering, parameter tuning, XGBoost regressor)
-2.	Compare deep learning with XGboost for model performance
-3.	With generative AI becoming very hot these days, people are talking about the possibility that machine will take over software engineers. To test this speculation for machine learning arena, I used Cursor, a AI based coding tool, to build the machine learning model automatically. Then I compare its performance to other models I built.
+1.	Test & practice various traditional ML techniques on this dataset (data preprocessing, feature engineering, parameter tuning, XGBoost regressor)
+2.	Compare deep learning with XGboost for model performance upon tabular data
+3.	With generative AI becoming very hot these days, people are talking about the possibility that machine will take over software engineers. To test this speculation for machine learning arena, I used Cursor, a AI based coding tool, to build a XGBregrssor automatically.
 
 ### Results and Learning:
 Let’s use data to tell the story, below is the performance metrics comparison among 3 models I build. 
@@ -25,17 +25,19 @@ Let’s use data to tell the story, below is the performance metrics comparison 
 3. XGBoost regressor automatically built by cursor: NA (didn't bother to try it due to the poor performance on validset)
 
 #### Insights obtained from this comparison analysis: 
-1. Gradient Boosting Tree is always a good choice for tabular data. It deliverred excellent results for both validset and final inference. Compared with Deep Neural Netowrk, it is much easier for model coding and training; It is also less demanding for hardware (doesn't need GPUs).
-2. Even though DNN is powerful for unstructured data, it is hard for it to beat GBT on tabular data. However, given that it also delivered very good performance result, it should be worth testing if a certain project has higher amount of data samples. Plus, DNN's need of expensive hardwares especially GPU chips should be another factor to considered when making decisions.
-3. Speaking of AI generated ML models, it seems lacking the ML domain knowledges of dealing with complex features, so the model didn’t perform well (got worst RMSE metric for valid set). However, I am pretty impressed with its coding capabilities. I feel it could be a coding assistant to AI engineers to improve efficiency. This direction definitely needs more testing in future.
+1. Gradient Boosting Tree is always a good choice for tabular data. It deliverred excellent results for both valid set and inference. Compared to Deep Neural Netowrk, it is much easier for model coding and training; It is also less demanding for hardware (doesn't need GPUs).
+2. Even though DNN is powerful for unstructured data, it is hard for DNN to beat GBT on tabular data. However, given that it also delivered very good performance result, it should be worth testing if a certain project has much higher amount of data samples. Plus, DNN's need of expensive hardwares especially GPU should be another factor to consider when making decisions.
+3. Speaking of AI generated ML models, it seems lacking the ML domain knowledges of dealing with complex features, so the model didn’t perform well (got worst RMSE metric for valid set). However, I am pretty impressed with its coding capabilities. I feel it could be a coding assistant to AI engineers to improve efficiency. This idea definitely needs more testing in future.
 
 #### Some more insights obtained from building the XGBoost regressor: 
-1. It is always good to check features carefully and develop careful plan of feature cleaning and feature engineering.
-2. Plus, some tradinal ML techniques (automatic feature selection (RFE used here), mean encoding for categorical features, parameter tuning through sklearn.RandomizedsearchCV) are very effective to help XGBoost Regressor learn the pattern from training data, finally delivering impressive performance.
-3. I also tried to create new features through combining existing features and create more powerful ones. But this doesn't really help XGBoost regressor to learn (please refer the section 'Feature Engineering' in notebook). The learning here is that, for XGBoost, you'd better let it handle feature engineering by itself instead of manually creating new ones. XGBoost naturally can handle feature selection and feature interaction by using its algorthm.
+1. It is always good to check features carefully and develop a plan of feature cleaning and feature engineering.
+2. Tradinal ML techniques (feature selection (RFE used here), categorical features' mean encoding, parameter tuning through sklearn.RandomizedsearchCV) are very effective to improve ML model's performance. Here is a chart showing how these techniques boosted XGBregressor's performance.
+p.s. the chart below shows how ML model performance was improved by utilizing different ML technique. (The effects are accumulative from left to right)
+![Model performance based on ML techniques](pic/mltechniques.png)
+3. I also tried to create new (more powerful) features through combining existing features. But this doesn't really work out (please refer the section 'Feature Engineering' in notebook). The learning here is that, for XGBoost, we should let it handle feature engineering by itself instead of manually creating new ones. XGBoost naturally can handle feature selection and feature interaction by using its algorthm.
 
 #### Code files shared on repo:
-1. [Dev code](houseprices_dev_phase2.ipynb) 
-2. [Production code](houseprice.py)
-3. [Model built by AI tool cursor](ML_cursor.py) 
+1. [Dev code](houseprices_dev_phase2.ipynb): houseprices_dev_phase2.ipynb 
+2. [Production code](houseprice.py): houseprice.py
+3. [Model built by AI tool cursor](ML_cursor.py): ML_cursor.py 
 
